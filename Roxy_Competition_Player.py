@@ -60,7 +60,7 @@ def minimax(player_id : int, curr_board : [int], depth : int, should_maximize : 
 def competition_player(player_id : int, curr_board : [int]) -> int:
     open_spots = get_open_spots(player_id, curr_board)
     possible_boards = list(map(lambda x : generate_possible_board(player_id, curr_board, x), open_spots))
-    scored_boards = list(map(lambda x : minimax(player_id, x, 5, False), possible_boards))
+    scored_boards = list(map(lambda x : minimax(player_id, x, 10, False), possible_boards))
     
     best_score = max(scored_boards)
     best_moves = [x for x, score in zip(open_spots, scored_boards) if score == best_score]
